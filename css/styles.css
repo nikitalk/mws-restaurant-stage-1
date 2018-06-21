@@ -10,7 +10,7 @@ body,td,th,p{
 body {
 	background-color: #fdfdfd;
 	margin: 0;
-	position:relative;
+	
 }
 ul, li {
 	font-family: Arial, Helvetica, sans-serif;
@@ -33,21 +33,95 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 20px;
 }
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-	display: block;
+	display: grid;
 }
+
+#container {
+  background-color: #f3f3f3;
+  min-height: 100%;
+
+  display: grid;
+  grid-gap: 0px;    
+  grid-template-columns: 310px auto;
+  grid-template-rows: 60px auto 50px;
+  grid-template-areas:
+      "h h"
+      "m m"
+      "f f";
+ 
+  height: 100vh;
+}
+
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
+  grid-area: m;
+display: grid;
+grid-template-columns: 30% 70%;
+  grid-template-rows: 100%;
+  grid-template-areas:
+      "list map";
 }
+
+#header {
+  grid-area: h;
+  background-color: #444;
+  color: #aaa;
+  font-size: 8pt;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 #footer {
+  grid-area: f;
+  background-color: #444;
+  color: #aaa;
+  font-size: 8pt;
+  letter-spacing: 1px;
+
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#list-container {
+  grid-area: list;
   background-color: #444;
   color: #aaa;
   font-size: 8pt;
   letter-spacing: 1px;
   padding: 25px;
   text-align: center;
+overflow: auto;
   text-transform: uppercase;
 }
+
+::-webkit-scrollbar{
+    width:12px;
+}
+
+::-webkit-scrollbar-thumb{
+    border-width:1px 1px 1px 2px;
+    border-color: #777;
+    background-color: #aaa;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    border-width: 1px 1px 1px 2px;
+    border-color: #555;
+    background-color: #777;
+}
+
+
+::-webkit-scrollbar-track{
+    border-width:0;
+}
+
+::-webkit-scrollbar-track:hover{
+    border-left: solid 1px #aaa;
+    background-color: #eee;
+}
+
 /* ====================== Navigation ====================== */
 nav {
   width: 100%;
@@ -99,8 +173,8 @@ nav h1 a {
 }
 /* ====================== Map ====================== */
 #map {
-  height: 400px;
-  width: 100%;
+
+ 
   background-color: #ccc;
 }
 /* ====================== Restaurant Filtering ====================== */
@@ -134,8 +208,11 @@ nav h1 a {
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
+  
   padding: 30px 15px 60px;
   text-align: center;
+  display: grid;  
+  grid-template-columns: repeat(auto-fill, 350px)
 }
 #restaurants-list li {
   background-color: #fff;
@@ -180,6 +257,13 @@ nav h1 a {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+#map-container {
+  background: blue none repeat scroll 0 0;
+  height: 100%;
+    width: 100%;
+      grid-area: map;
 }
 
 /* ====================== Restaurant Details ====================== */

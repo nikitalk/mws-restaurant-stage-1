@@ -61,6 +61,7 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
   const select = document.getElementById('cuisines-select');
 
   cuisines.forEach(cuisine => {
+    
     const option = document.createElement('option');
     option.innerHTML = cuisine;
     option.value = cuisine;
@@ -78,7 +79,7 @@ initMap = () => {
         scrollWheelZoom: false
       });
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-    mapboxToken: '<your MAPBOX API KEY HERE>',
+    mapboxToken: 'sk.eyJ1IjoibWFoYXJzaGkiLCJhIjoiY2ppa291eG9pMjdqYjNxbnJnNGU0MzI4NCJ9.MvAHltg8Lll8tiZI_WubJw',
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
