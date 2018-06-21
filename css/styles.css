@@ -90,10 +90,16 @@ grid-template-columns: 30% 70%;
   color: #aaa;
   font-size: 8pt;
   letter-spacing: 1px;
-  padding: 25px;
+  
   text-align: center;
-overflow: auto;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 60px auto;
+  grid-template-areas:
+      "filter"
+      "listing";
   text-transform: uppercase;
+ 
 }
 
 ::-webkit-scrollbar{
@@ -183,6 +189,7 @@ nav h1 a {
   height: 50px;
   background-color: #3397DB;
   align-items: center;
+  grid-area: filter;
 }
 .filter-options h2 {
   color: white;
@@ -208,10 +215,11 @@ nav h1 a {
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
-  
+  grid-area: listing;
   padding: 30px 15px 60px;
   text-align: center;
   display: grid;  
+  overflow: auto;
   grid-template-columns: repeat(auto-fill, 350px)
 }
 #restaurants-list li {
