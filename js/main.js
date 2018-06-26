@@ -4,6 +4,22 @@ let restaurants,
 var newMap
 var markers = []
 
+
+
+function registerServiceWorker() {
+  if (!navigator.serviceWorker) return;
+
+  navigator.serviceWorker.register('/sw.js').then(function() {
+    console.log('Registration worked!');
+  }).catch(function() {
+    console.log('Registration failed!');
+  });
+};
+
+
+
+
+
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
@@ -11,6 +27,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   initMap(); // added 
   fetchNeighborhoods();
   fetchCuisines();
+  registerServiceWorker();
 });
 
 /**
@@ -161,11 +178,11 @@ createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
   const div1 = document.createElement('span');
-  div1.setAttribute('id', 'list-image');
+  div1.setAttribute('class', 'list-image');
     li.append(div1);
 
       const div2 = document.createElement('span');
-  div2.setAttribute('id', 'list-text');
+  div2.setAttribute('class', 'list-text');
     li.append(div2);
 
 
